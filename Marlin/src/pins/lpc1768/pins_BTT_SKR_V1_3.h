@@ -29,6 +29,7 @@
 #define X_DIAG_PIN           P1_29   // X-
 #define Y_DIAG_PIN           P1_27   // Y-
 #define Z_DIAG_PIN           P1_25   // Z-
+#define Z2_DIAG_PIN           P1_26   // Z2-
 #define E0_DIAG_PIN          P1_28   // X+
 #define E1_DIAG_PIN          P1_26   // Y+
 
@@ -126,7 +127,7 @@
 #endif
 
 
-#ifndef z2_STEP_PIN
+#ifndef Z2_STEP_PIN
   #define Z2_STEP_PIN      P0_01
 #endif
 #ifndef Z2_DIR_PIN
