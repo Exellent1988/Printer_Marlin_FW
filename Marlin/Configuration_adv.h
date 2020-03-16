@@ -281,8 +281,8 @@
 #if ENABLED(USE_CONTROLLER_FAN)
   #define CONTROLLER_FAN_PIN P1_28           // Set a custom pin for the controller fan
   #define CONTROLLERFAN_SECS 15             // Duration in seconds for the fan to run after all motors are disabled
-  #define CONTROLLERFAN_SPEED 175           // 255 == full speed
-  #define CONTROLLERFAN_SPEED_Z_ONLY 75  // Reduce noise on machines that keep Z enabled
+  #define CONTROLLERFAN_SPEED 220           // 255 == full speed
+  #define CONTROLLERFAN_SPEED_Z_ONLY 125  // Reduce noise on machines that keep Z enabled
 #endif
 
 // When first starting the main fan, run it at full speed for the
@@ -603,10 +603,10 @@
  * Z Steppers Auto-Alignment
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
-#define Z_STEPPER_AUTO_ALIGN
+#define Z_STEPPER_AUTO_ALIGN 
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   // Define probe X and Y positions for Z1, Z2 [, Z3]
-  #define Z_STEPPER_ALIGN_XY { {  100, 170 }, { 100,  10 } }
+  #define Z_STEPPER_ALIGN_XY { { 33, 150 }, { 190, 150 } }
 
   // Provide Z stepper positions for more rapid convergence in bed alignment.
   // Currently requires triple stepper drivers.
