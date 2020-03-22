@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -153,6 +153,30 @@
 #define FAN5_PIN           PB11
 
 //
+// Onboard SD support
+//
+
+#define SDIO_D0_PIN        PC8
+#define SDIO_D1_PIN        PC9
+//#define SD_CARD_DETECT_PIN PC13
+#define SDIO_D2_PIN        PC10
+#define SDIO_D3_PIN        PC11
+#define SDIO_CK_PIN        PC12
+#define SDIO_CMD_PIN       PD2
+
+#if !defined(SDCARD_CONNECTION) || SDCARD_CONNECTION == ONBOARD
+  #define SDIO_SUPPORT     // Use SDIO for onboard SD
+
+  #ifndef SDIO_SUPPORT
+    #define SOFTWARE_SPI   // Use soft SPI for onboard SD
+    #define SDSS           SDIO_D3_PIN
+    #define SCK_PIN        SDIO_CK_PIN
+    #define MISO_PIN       SDIO_D0_PIN
+    #define MOSI_PIN       SDIO_CMD_PIN
+  #endif
+#endif
+
+//
 // Trinamic Software SPI
 //
 
@@ -172,7 +196,7 @@
 // Trinamic Software Serial
 //
 
-#if HAS_TMC220x
+#if HAS_TMC_UART
   #define X_SERIAL_TX_PIN  PG13
   #define X_SERIAL_RX_PIN  PG13
 
