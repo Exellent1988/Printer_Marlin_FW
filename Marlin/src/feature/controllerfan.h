@@ -56,9 +56,9 @@ class ControllerFan {
 
   public:
     #if ENABLED(CONTROLLER_FAN_EDITABLE)
-      static controllerFan_settings_t settings;
-    #else
       static const controllerFan_settings_t &settings = controllerFan_defaults;
+    #else
+      static controllerFan_settings_t settings;
     #endif
     static inline bool state() { return speed > 0; }
     static inline void init() { reset(); }

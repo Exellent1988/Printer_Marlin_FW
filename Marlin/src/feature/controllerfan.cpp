@@ -90,10 +90,10 @@ void ControllerFan::update() {
     // Fan Settings. Set fan > 0:
     //  - If AutoMode is on and steppers have been enabled for CONTROLLERFAN_IDLE_TIME seconds.
     //  - If System is on idle and idle fan speed settings is activated.
-    set_fan_speed(
-      settings.auto_mode && lastMotorOn && PENDING(ms, lastMotorOn + settings.duration * 1000UL)
-      ? settings.active_speed : settings.idle_speed
-    );
+    // set_fan_speed(
+    //  lastMotorOn && PENDING(ms, lastMotorOn + settings.duration * 1000UL)
+    //   ? settings.active_speed : settings.idle_speed
+    // );
 
     // Allow digital or PWM fan output (see M42 handling)
     WRITE(CONTROLLER_FAN_PIN, speed);

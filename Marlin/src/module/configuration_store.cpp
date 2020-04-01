@@ -893,15 +893,15 @@ void MarlinSettings::postprocess() {
     //
     // Controller Fan
     //
-    {
-      _FIELD_TEST(controllerFan_settings);
-      #if ENABLED(USE_CONTROLLER_FAN)
-        const controllerFan_settings_t &cfs = controllerFan.settings;
-      #else
-        controllerFan_settings_t cfs = controllerFan_defaults;
-      #endif
-      EEPROM_WRITE(cfs);
-    }
+    // {
+    //   _FIELD_TEST(controllerFan_settings);
+    //   #if ENABLED(USE_CONTROLLER_FAN)
+    //     const controllerFan_settings_t &cfs = controllerFan.settings;
+    //   #else
+    //     controllerFan_settings_t cfs = controllerFan_defaults;
+    //   #endif
+    //   EEPROM_WRITE(cfs);
+    // }
 
     //
     // Power-Loss Recovery
@@ -1745,15 +1745,15 @@ void MarlinSettings::postprocess() {
       //
       // Controller Fan
       //
-      {
-        _FIELD_TEST(controllerFan_settings);
-        #if ENABLED(CONTROLLER_FAN_EDITABLE)
-          const controllerFan_settings_t &cfs = controllerFan.settings;
-        #else
-          controllerFan_settings_t cfs = { 0 };
-        #endif
-        EEPROM_READ(cfs);
-      }
+      // {
+      //   _FIELD_TEST(controllerFan_settings);
+      //   #if ENABLED(CONTROLLER_FAN_EDITABLE)
+      //     const controllerFan_settings_t &cfs = controllerFan.settings;
+      //   #else
+      //     controllerFan_settings_t cfs = { 0 };
+      //   #endif
+      //   EEPROM_READ(cfs);
+      // }
 
       //
       // Power-Loss Recovery
